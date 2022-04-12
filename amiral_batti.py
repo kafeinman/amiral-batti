@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import random as random
-import keyboard
 
 # Oyun matrisinin olusturulmasi
 mx = np.full((10, 10), "0")
@@ -441,7 +440,6 @@ def girdi_kontrol(girdi):
     else:
         return False
 
-
 #print(df)
 print(cf)
 
@@ -473,35 +471,47 @@ def atis_kontol(a, b):
             cf.loc[a, b] = '*'
             df.loc[a, b] = '6'
             print(cf)
-            print("Mayın gemisi vuruldu!")
+            print("Mayın gemisi battı!")
             kullanici_girisi()
         elif(atis == 2):
             denizalti_count -= 1
             cf.loc[a, b] = '*'
             df.loc[a, b] = '6'
             print(cf)
-            print("Denizaltı vuruldu!")
+            if(denizalti_count == -1):
+                print("Denizaltı battı!")
+            else:
+                print("Denizaltı vuruldu!")
             kullanici_girisi()
         elif(atis == 3):
             firkateyn_count -= 1
             cf.loc[a, b] = '*'
             df.loc[a, b] = '6'
             print(cf)
-            print("Fırkateyn vuruldu!")
+            if(firkateyn_count == -1):
+                print("Fırkateyn battı!")
+            else:
+                print("Fırkateyn vuruldu!")
             kullanici_girisi()
         elif(atis == 4):
             muhrip_count -= 1
             cf.loc[a, b] = '*'
             df.loc[a, b] = '6'
             print(cf)
-            print("Muhrip gemisi vuruldu!")
+            if(muhrip_count == -1):
+                print("Muhrip battı!")
+            else:
+                print("Muhrip vuruldu!")
             kullanici_girisi()
         elif(atis == 5):
             amiral_count -= 1
             cf.loc[a, b] = '*'
             df.loc[a, b] = '6'
             print(cf)
-            print("Amiral gemisi vuruldu!")
+            if(amiral_count == -1):
+                print("Amiral battı!")
+            else:
+                print("Amiral vuruldu!")
             kullanici_girisi()
         else:
             print("Aynı yere atış yapamazsınız! Lütfen tekrar deneyin.")
