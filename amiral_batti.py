@@ -71,7 +71,7 @@ else:
     df.iloc[amiral_baslangic[0], amiral_baslangic[1]:amiral_bitis[1]+1] = 5
 
 
-#Muhripin konumu
+# Muhripin konumu
 if(muhrip_matrisi == (0, 0)):
     if(muhrip_pozisyon < 5):
         muhrip_baslangic = [muhrip_pozisyon, 0]
@@ -135,7 +135,7 @@ else:
     df.iloc[muhrip_baslangic[0], muhrip_baslangic[1]:muhrip_bitis[1]+1] = 4
 
 
-# Firkateyn konumu
+# Firkateynin konumu
 if(firkateyn_matrisi == (0, 0)):
     if(firkateyn_pozisyon < 5):
         firkateyn_baslangic = [firkateyn_pozisyon, 0]
@@ -224,7 +224,7 @@ else:
     df.iloc[firkateyn_baslangic[0], firkateyn_baslangic[1]:firkateyn_bitis[1]+1] = 3
 
 
-#Denizaltinin konumu
+# Denizaltinin konumu
 if(denizalti_matrisi == (0, 0)):
     if(denizalti_pozisyon < 5):
         denizalti_baslangic = [denizalti_pozisyon, 0]
@@ -350,16 +350,63 @@ while True:
 # Kullanici girisi
 check_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
 
-
 j = 0
 def kullanici_girisi():
     global j
     j += 1
     girdi = input(str(j) + '.Atış lütfen tahminizi giriniz: ')
 
-
     if(girdi_kontrol(girdi) == True):
-        if len(girdi) == 2:
+        if len(girdi) == 1:
+
+            if(girdi == 'r'):
+                j -= 1
+
+                print("------------------------------------")
+                print(str(j) + ' atış denemesi yaptınız.')
+
+                if(mayin_count == -1):
+                    print('Mayın gemisi battı.')
+                else:
+                    print('Mayın gemisi hiç isabet almadı.')
+                if(denizalti_count == -1):
+                    print('Denizaltı battı.')
+                elif(denizalti_count == 1):
+                    print("Denizaltı hiç isabet almadı.")
+                else:
+                    print('Denizaltı ' + str(1 - denizalti_count) + ' isabet aldı.')
+                if(firkateyn_count == -1):
+                    print('Fırkateyn battı.')
+                elif(firkateyn_count == 2):
+                    print("Fırkateyn hiç isabet almadı.")
+                else:
+                    print('Fırkateyn ' + str(2 - firkateyn_count) + ' isabet aldı.')
+                if(muhrip_count == -1):
+                    print('Muhrip gemisi battı.')
+                elif(muhrip_count == 3):
+                    print("Muhrip gemisi hiç isabet almadı.")
+                else:
+                    print('Muhrip ' + str(3 - muhrip_count) + ' isabet aldı.')
+                if(amiral_count == -1):
+                    print('Amiral gemisi battı.')
+                elif(amiral_count == 4):
+                    print("Amiral gemisi hiç isabet almadı.")
+                else:
+                    print('Amiral gemisi ' + str(4 - amiral_count) + ' isabet aldı.')
+
+                print("------------------------------------")
+                kullanici_girisi()
+
+            elif(girdi == 'q'):
+                print("Programdan çıkıldı.")
+                quit()
+
+            else:
+                j -= 1
+                print("Hata : sayılar 1 ile 10 harfler de A ile J arasında olmalıdır. Tekrar giriniz.")
+                kullanici_girisi()
+
+        elif len(girdi) == 2:
             a = girdi[0]
             b = girdi[1]
             atis_kontol(a, b)
@@ -369,13 +416,15 @@ def kullanici_girisi():
             b = girdi[2]
             atis_kontol(a, b)
 
-
-    else:
+    elif(girdi_kontrol(girdi) == False):
         print("Hata : sayılar 1 ile 10 harfler de A ile J arasında olmalıdır. Tekrar giriniz.")
         kullanici_girisi()
 
 def girdi_kontrol(girdi):
-    if len(girdi) == 2:
+    if len(girdi) == 1 and girdi == 'r' or 'q':
+        return True
+
+    elif len(girdi) == 2:
         a = girdi[0]
         b = girdi[1]
         if (a in check_list and b in check_list):
@@ -393,7 +442,7 @@ def girdi_kontrol(girdi):
         return False
 
 
-print(df)
+#print(df)
 print(cf)
 
 mayin_count = 0
@@ -465,16 +514,7 @@ def atis_kontol(a, b):
         print('Tebrikler! ' + str(j) + '.atışta oyunu kazandınız.')
 
 
-
-
 kullanici_girisi()
-
-
-
-
-
-
-
 
 
 

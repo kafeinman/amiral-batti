@@ -1,7 +1,5 @@
-# prepare to exit the program
-def quit():
-    global exitProgram
-    exitProgram=True
-
-# set hotkey
-keyboard.add_hotkey('q', lambda: quit())
+mayin_count = 0
+denizalti_count = 1
+firkateyn_count = 2
+muhrip_count = 3
+amiral_count = 4
