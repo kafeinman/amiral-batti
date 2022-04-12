@@ -333,7 +333,19 @@ else:
     df.iloc[denizalti_baslangic[0], denizalti_baslangic[1]:denizalti_bitis[1]+1] = 2
 
 
+# Mayin gemisinin konumu
 
+
+#print(df.iloc[x, y])
+
+while 1:
+    x = random.randint(0, 9)
+    y = random.randint(0, 9)
+    k = int(df.iloc[x, y])
+    if(k == 0):
+        df.iloc[x, y] = 1
+        #print(df)
+        break
 
 
 
