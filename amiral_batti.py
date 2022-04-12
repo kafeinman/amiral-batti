@@ -347,31 +347,35 @@ while 1:
 
 # Kullanici girisi
 check_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
-girdi = input("Lütfen koordinatları giriniz: ")
 
-if len(girdi) == 2:
-    a = girdi[0]
-    b = girdi[1]
-
-    if (a in check_list and b in check_list):
+def kullanici_girisi():
+    girdi = input("Lütfen koordinatları giriniz: ")
+    if(girdi_kontrol(girdi) == True):
         print("Devam et")
     else:
         print("Hata : sayılar 1 ile 10 harfler de A ile J arasında olmalıdır. Tekrar giriniz.")
+        kullanici_girisi()
 
-elif len(girdi) == 3:
-    a = girdi[0] + girdi[1]
-    b = girdi[2]
-
-    if (a in check_list and b in check_list):
-        print("Devam et")
+def girdi_kontrol(girdi):
+    if len(girdi) == 2:
+        a = girdi[0]
+        b = girdi[1]
+        if (a in check_list and b in check_list):
+            return True
+        else:
+            return False
+    elif len(girdi) == 3:
+        a = girdi[0] + girdi[1]
+        b = girdi[2]
+        if (a in check_list and b in check_list):
+            return True
+        else:
+            return False
     else:
-        print("Hata : sayılar 1 ile 10 harfler de A ile J arasında olmalıdır. Tekrar giriniz.")
-
-else:
-    print("Hata : sayılar 1 ile 10 harfler de A ile J arasında olmalıdır. Tekrar giriniz.")
+        return False
 
 
-
+kullanici_girisi()
 
 
 
