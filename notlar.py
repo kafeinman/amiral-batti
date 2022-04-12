@@ -1,4 +1,7 @@
-pozisyon = int(df.loc[a, b])
-print(df)
-print(df.loc[a, b])
-print(a + b)
+# prepare to exit the program
+def quit():
+    global exitProgram
+    exitProgram=True
+
+# set hotkey
+keyboard.add_hotkey('q', lambda: quit())

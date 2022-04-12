@@ -1,10 +1,13 @@
 import numpy as np
 import pandas as pd
 import random as random
+import keyboard
 
 # Oyun matrisinin olusturulmasi
 mx = np.full((10, 10), "0")
 df = pd.DataFrame(mx, index=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], columns=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"])
+cf = pd.DataFrame(mx, index=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], columns=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"])
+
 #print(df)
 
 # Gemilerin rastgele atanmasi
@@ -334,7 +337,7 @@ else:
 
 
 # Mayin gemisinin konumu
-while 1:
+while True:
     x = random.randint(0, 9)
     y = random.randint(0, 9)
     k = int(df.iloc[x, y])
@@ -344,14 +347,29 @@ while 1:
         break
 
 
-
 # Kullanici girisi
 check_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
 
+
+j = 0
 def kullanici_girisi():
-    girdi = input("Lütfen koordinatları giriniz: ")
+    global j
+    j += 1
+    girdi = input(str(j) + '.Atış lütfen tahminizi giriniz: ')
+
+
     if(girdi_kontrol(girdi) == True):
-        print("Devam et")
+        if len(girdi) == 2:
+            a = girdi[0]
+            b = girdi[1]
+            atis_kontol(a, b)
+
+        else:
+            a = girdi[0] + girdi[1]
+            b = girdi[2]
+            atis_kontol(a, b)
+
+
     else:
         print("Hata : sayılar 1 ile 10 harfler de A ile J arasında olmalıdır. Tekrar giriniz.")
         kullanici_girisi()
@@ -375,7 +393,91 @@ def girdi_kontrol(girdi):
         return False
 
 
+print(df)
+print(cf)
+
+mayin_count = 0
+denizalti_count = 1
+firkateyn_count = 2
+muhrip_count = 3
+amiral_count = 4
+
+def atis_kontol(a, b):
+
+    global mayin_count
+    global denizalti_count
+    global firkateyn_count
+    global muhrip_count
+    global amiral_count
+
+    atis = int(df.loc[a, b])
+
+    if(mayin_count > 0 or denizalti_count > 0 or firkateyn_count > 0 or muhrip_count > 0 or amiral_count > 0):
+        if (atis == 0):
+            print("Atış Başarısız. Lütfen tekrar deneyiniz.")
+            cf.loc[a, b] = 'X'
+            df.loc[a, b] = '6'
+            print(cf)
+            kullanici_girisi()
+        elif(atis == 1):
+            mayin_count -= 1
+            cf.loc[a, b] = '*'
+            df.loc[a, b] = '6'
+            print(cf)
+            print("Mayın gemisi vuruldu!")
+            kullanici_girisi()
+        elif(atis == 2):
+            denizalti_count -= 1
+            cf.loc[a, b] = '*'
+            df.loc[a, b] = '6'
+            print(cf)
+            print("Denizaltı vuruldu!")
+            kullanici_girisi()
+        elif(atis == 3):
+            firkateyn_count -= 1
+            cf.loc[a, b] = '*'
+            df.loc[a, b] = '6'
+            print(cf)
+            print("Fırkateyn vuruldu!")
+            kullanici_girisi()
+        elif(atis == 4):
+            muhrip_count -= 1
+            cf.loc[a, b] = '*'
+            df.loc[a, b] = '6'
+            print(cf)
+            print("Muhrip gemisi vuruldu!")
+            kullanici_girisi()
+        elif(atis == 5):
+            amiral_count -= 1
+            cf.loc[a, b] = '*'
+            df.loc[a, b] = '6'
+            print(cf)
+            print("Amiral gemisi vuruldu!")
+            kullanici_girisi()
+        else:
+            print("Aynı yere atış yapamazsınız! Lütfen tekrar deneyin.")
+            kullanici_girisi()
+
+    else:
+        cf.loc[a, b] = '*'
+        df.loc[a, b] = '6'
+        print(cf)
+        print('Tebrikler! ' + str(j) + '.atışta oyunu kazandınız.')
+
+
+
+
 kullanici_girisi()
+
+
+
+
+
+
+
+
+
+
 
 
 
