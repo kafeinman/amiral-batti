@@ -347,20 +347,20 @@ while 1:
 
 # Kullanici girisi
 check_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
-koordinat = input("Lütfen koordinatları giriniz: ")
+girdi = input("Lütfen koordinatları giriniz: ")
 
-if len(koordinat) == 2:
-    a = koordinat[0]
-    b = koordinat[1]
+if len(girdi) == 2:
+    a = girdi[0]
+    b = girdi[1]
 
     if (a in check_list and b in check_list):
         print("Devam et")
     else:
         print("Hata : sayılar 1 ile 10 harfler de A ile J arasında olmalıdır. Tekrar giriniz.")
 
-elif len(koordinat) == 3:
-    a = koordinat[0] + koordinat[1]
-    b = koordinat[2]
+elif len(girdi) == 3:
+    a = girdi[0] + girdi[1]
+    b = girdi[2]
 
     if (a in check_list and b in check_list):
         print("Devam et")
