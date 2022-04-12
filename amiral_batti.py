@@ -334,10 +334,6 @@ else:
 
 
 # Mayin gemisinin konumu
-
-
-#print(df.iloc[x, y])
-
 while 1:
     x = random.randint(0, 9)
     y = random.randint(0, 9)
@@ -349,22 +345,35 @@ while 1:
 
 
 
+# Kullanici girisi
+check_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+koordinat = input("Lütfen koordinatları giriniz: ")
+
+if len(koordinat) == 2:
+    a = koordinat[0]
+    b = koordinat[1]
+
+    if (a in check_list and b in check_list):
+        print("Devam et")
+    else:
+        print("Hata : sayılar 1 ile 10 harfler de A ile J arasında olmalıdır. Tekrar giriniz.")
+
+elif len(koordinat) == 3:
+    a = koordinat[0] + koordinat[1]
+    b = koordinat[2]
+
+    if (a in check_list and b in check_list):
+        print("Devam et")
+    else:
+        print("Hata : sayılar 1 ile 10 harfler de A ile J arasında olmalıdır. Tekrar giriniz.")
+
+else:
+    print("Hata : sayılar 1 ile 10 harfler de A ile J arasında olmalıdır. Tekrar giriniz.")
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-#print(df)
 
 
 
