@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import random as random
 
 # Oyun matrisinin olusturulmasi
 mx = np.full((10, 10), "0")
@@ -525,44 +524,3 @@ def atis_kontol(a, b):
 
 
 kullanici_girisi()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
