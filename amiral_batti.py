@@ -69,7 +69,6 @@ if(amiral_baslangic[1] == amiral_bitis[1]):
 else:
     df.iloc[amiral_baslangic[0], amiral_baslangic[1]:amiral_bitis[1]+1] = 5
 
-
 # Muhripin konumu
 if(muhrip_matrisi == (0, 0)):
     if(muhrip_pozisyon < 5):
@@ -124,7 +123,6 @@ if(muhrip_matrisi == (5, 5)):
         muhrip_baslangic = [6, muhrip_pozisyon - 10]
         muhrip_bitis = [9, muhrip_pozisyon - 10]
 
-
 #print(muhrip_baslangic[0], muhrip_baslangic[1])
 #print(muhrip_bitis[0], muhrip_bitis[1])
 
@@ -132,8 +130,7 @@ if(muhrip_baslangic[1] == muhrip_bitis[1]):
     df.iloc[muhrip_baslangic[0]:muhrip_bitis[0]+1, muhrip_bitis[1]] = 4
 else:
     df.iloc[muhrip_baslangic[0], muhrip_baslangic[1]:muhrip_bitis[1]+1] = 4
-
-
+    
 # Firkateynin konumu
 if(firkateyn_matrisi == (0, 0)):
     if(firkateyn_pozisyon < 5):
@@ -212,7 +209,6 @@ if(firkateyn_matrisi == (5, 5)):
         firkateyn_baslangic = [7, firkateyn_pozisyon - 20]
         firkateyn_bitis = [9, firkateyn_pozisyon - 20]
 
-
 #print(firkateyn_baslangic[0], firkateyn_baslangic[1])
 #print(firkateyn_bitis[0], firkateyn_bitis[1])
 
@@ -220,7 +216,6 @@ if(firkateyn_baslangic[1] == firkateyn_bitis[1]):
     df.iloc[firkateyn_baslangic[0]:firkateyn_bitis[0]+1, firkateyn_bitis[1]] = 3
 else:
     df.iloc[firkateyn_baslangic[0], firkateyn_baslangic[1]:firkateyn_bitis[1]+1] = 3
-
 
 # Denizaltinin konumu
 if(denizalti_matrisi == (0, 0)):
@@ -324,7 +319,6 @@ if(denizalti_matrisi == (5, 5)):
         denizalti_baslangic = [8, denizalti_pozisyon - 30]
         denizalti_bitis = [9, denizalti_pozisyon - 30]
 
-
 #print(denizalti_baslangic[0], denizalti_baslangic[1])
 #print(denizalti_bitis[0], denizalti_bitis[1])
 
@@ -332,7 +326,6 @@ if(denizalti_baslangic[1] == denizalti_bitis[1]):
     df.iloc[denizalti_baslangic[0]:denizalti_bitis[0]+1, denizalti_bitis[1]] = 2
 else:
     df.iloc[denizalti_baslangic[0], denizalti_baslangic[1]:denizalti_bitis[1]+1] = 2
-
 
 # Mayin gemisinin konumu
 while True:
@@ -344,7 +337,7 @@ while True:
         #print(df)
         break
 
-
+      
 # Kullanici girisi
 check_list = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
 
@@ -524,7 +517,5 @@ def atis_kontol(a, b):
 
 
 kullanici_girisi()
-
-
 
 
