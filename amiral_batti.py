@@ -212,7 +212,6 @@ if(firkateyn_matrisi == (5, 5)):
         firkateyn_bitis = [9, firkateyn_pozisyon - 20]
 
 
-
 #print(firkateyn_baslangic[0], firkateyn_baslangic[1])
 #print(firkateyn_bitis[0], firkateyn_bitis[1])
 
@@ -524,3 +523,4 @@ def atis_kontol(a, b):
 
 
 kullanici_girisi()
+
