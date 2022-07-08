@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import random as rd
 
 # Oyun matrisinin olusturulmasi
 mx = np.full((10, 10), "0")
@@ -10,20 +11,20 @@ cf = pd.DataFrame(mx, index=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
 
 # Gemilerin rastgele atanmasi
 list = [(0,0), (0,5), (5,0), (5,5)]
-amiral_matrisi = random.choice(list)
+amiral_matrisi = rd.choice(list)
 list.remove(amiral_matrisi)
-muhrip_matrisi = random.choice(list)
+muhrip_matrisi = rd.choice(list)
 list.remove(muhrip_matrisi)
-firkateyn_matrisi = random.choice(list)
+firkateyn_matrisi = rd.choice(list)
 list.remove(firkateyn_matrisi)
-denizalti_matrisi = random.choice(list)
+denizalti_matrisi = rd.choice(list)
 list.remove(denizalti_matrisi)
 
 # Gemilerin pozisyonlarinin belirlenmesi
-amiral_pozisyon = random.randint(0, 9)
-muhrip_pozisyon = random.randint(0, 19)
-firkateyn_pozisyon = random.randint(0, 29)
-denizalti_pozisyon = random.randint(0, 39)
+amiral_pozisyon = rd.randint(0, 9)
+muhrip_pozisyon = rd.randint(0, 19)
+firkateyn_pozisyon = rd.randint(0, 29)
+denizalti_pozisyon = rd.randint(0, 39)
 
 #print(amiral_matrisi, amiral_pozisyon)
 #print(muhrip_matrisi, muhrip_pozisyon)
@@ -335,8 +336,8 @@ else:
 
 # Mayin gemisinin konumu
 while True:
-    x = random.randint(0, 9)
-    y = random.randint(0, 9)
+    x = rd.randint(0, 9)
+    y = rd.randint(0, 9)
     k = int(df.iloc[x, y])
     if(k == 0):
         df.iloc[x, y] = 1
@@ -523,4 +524,7 @@ def atis_kontol(a, b):
 
 
 kullanici_girisi()
+
+
+
 
